@@ -1,30 +1,31 @@
 /*3. Given a word and a list of possible anagrams, select the correct sublist.*/
 
 
-function arrSub(arr, arrCheked){
-let a;
-let b;
+function anagramsFromArr(givenString, arr) {
+        
+    let arrRes = [];
+    arr.forEach(function(item) {
+        let newString = '';
+            if(item.length === givenString.length) {
+                for(let i = 0; i < item.length; i++) {
+                    if(!(givenString.includes(item[i]))) {
+                    break;  
+                    }
+                    
+                    newString+=item[i];                       
+                    }
+                    if(newString.length !== 0){
+                    arrRes.push(newString);
+                    }
+                }
+    });
+    return arrRes;
+    }
+     
+        
+        console.log(anagramsFromArr('listen', ['enlists', 'google', 'inlets', 'banana']));
+        console.log(anagramsFromArr('pencil', ['licnep', 'circular', 'pupil', 'nilcpe', 'leppnec']));
+        
 
-	if(a.length=b.length ){
 
-		let checked=false;
 
-		for(let i=0; i < a.length; i++){
-
-		if (!a[i].includes(b)){
-
-		break;
-		}
-		
-else { 
-	
-	checked=true;
-		}		
-	}
-
-	
-if (checked=true)
-return b;
-}
- 
-console.log(arrSub("listen", "istenl"));
